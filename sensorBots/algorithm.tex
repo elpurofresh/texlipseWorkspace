@@ -1,0 +1,174 @@
+%=======================================================================
+%
+%=======================================================================
+
+%\documentclass{llncs}
+\documentclass[11pt,letter]{article}
+
+%\documentclass[letterpaper, twocolumn, 10pt]{IEEEtran}
+\usepackage{times}
+\usepackage{amsmath}
+\usepackage{amssymb}
+%\usepackage{amsmath, amssymb}
+\usepackage{comment}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{color, array, colortbl}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{framed,color}
+\definecolor{shadecolor}{rgb}{0.9,0.9,0.9}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{remark}[theorem]{Remark}
+
+
+\begin{document}
+
+
+
+\title{TDMA-based Protocol for Multihop Underwater Wireless Networks
+}
+
+%\institute{}
+
+\date{}
+
+\maketitle
+
+\section{Proposed Protocol}
+
+There are $n$ nodes in the network, denoted as $N = \{n_i\mid i=0..n-1\}$. Note that $i$ represents the ID of node $n_i$. We assume $n_0$ is the \emph{master} node. The \emph{master} node is wired to the cable, and hence has plenty of power and bandwidth resources.
+The remaining nodes are wireless nodes, and use light waves to communicate with each other. We assume that communication is half-duplex, i.e., nodes can either send a packet or listen to the channel, but cannot do both at the same time.
+
+The rough idea behind our algorithm is sketched as follows, while the detailed protocol is illustrated in Algorithm~\ref{algo:tdma-1}:
+\begin{enumerate}
+	\item Construct a tree with $n_0$ as the root in a level by level, as well as TDMA fashion. Each node acquires its parent and children information.
+	\item Starting from the leaf nodes, the data is propagated back up to the root node, so that the \emph{master} node has the entire information about the network.
+	\item (OPTIONAL) In case we want to make the network more robust, e.g. by providing each node with a copy of entire network data, we do another pass top-down propagating all info from the root node.
+\end{enumerate}
+
+Based on the idea above, besides ID, the nodes also maintain the \emph{level} information ($n_i.level$), which is defined with respect to its distance from the \emph{master} node, i.e., how many communication hops one needed from $n_0$ to the node itself (Initially, $n_i.level=n_0.level=0$). Also, each node keeps track of its parent and children nodes, such as $n_i.parent$ and $n_i.child$, where $n_i.child$ is a linked list of $n_i$'s children. We assume nodes are well synchronized and the protocol proceeds in unit time slots. Since the protocol is TDMA-based, it means that each time frame is divided into $n$ time slots, and in each time slot $i$, only $n_i$ can transmit. This assumption guarantees that there will never be a collision because of concurrent transmissions.
+
+Several assumptions: %summarized by Andres on 04/26/2012 (Jin: feel free to correct this if I am wrong):
+\begin{enumerate}
+    \item number of nodes in the network: $1$ master node and $5$ normal nodes
+    \item size of a packet: $256$ bits, and the format is there already, and can be changed if needed.
+    \item the range between any two nodes is targeted to be over $10m$, but in the initial experiments it is $\le 2m$. The transmission range of the sensors is up to $50m$.
+    \item speed of transmission: $9.6$kHz for now, and would like to go up to $300$kHz. (To clarify: $10$Hz means $10bit/sec$)
+    \item data collection cycle may be set to every $12$ minutes. Sensors can sense anytime they want.
+    \item nodes broadcast its clock time, starting from the master node.
+    \item master node will be protected against blinking from robots because of their LED's light is too bright. There could be faulty sensors, sensors may join and/or leave. Also, error correction code, such as $CRC$ could be introduced to improve robustness.
+\end{enumerate}
+
+% \begin{algorithm}
+% \caption{Underwater Communication Protocol for node $n_i$}\label{algo:tdma}
+% \algsetup{indent=2em}
+% 
+% \begin{algorithmic}[1]
+% 
+% \STATE $t = 0$ %\COMMENT{$t$ indicates time slot}
+% 
+% \WHILE {TRUE}
+% 	\IF {$t \% n \neq i$}  %{$n_i$ listens to the channel}
+% 	  \IF {$n_i$ successfully received a packet $P$}
+% 	    \IF {$n_i.parent == null$}  %{$n_i$ receives a packet for the first time}
+% 	       \STATE $n_i.parent = P.src$  %{$P$ contains the source info}
+% 	       \STATE $n_i.level = P.src.level + 1$
+% 	    \ELSIF {$P.src \notin n_i.child$}
+% 	       \STATE $n_i.child \leftarrow P.src$  %{$P$ comes from one of $n_i$'s children}
+% 	    \ENDIF
+% 	    \STATE $n_i.DATA[P.src] = P.DATA$  %{update correspondent data content}
+% 	  \ENDIF
+% 	
+% 	\ELSE  %\COMMENT{$n_i$'s turn to transmit}
+% 	  \IF {$n_i.parent \neq null$}
+% 	     \STATE $n_i$ sends a packet $P$
+% 	  \ENDIF
+% 	\ENDIF
+% 	\STATE $t = t + 1$
+% 	\IF {$i = 0$ and $n_i.DATA$ has no empty slot}
+% 		\STATE report the data back to server or satellite
+% 	\ENDIF
+% \ENDWHILE
+% \end{algorithmic}
+% \end{algorithm}
+
+\begin{algorithm}
+\caption{Underwater Communication Protocol for node $n_i$}\label{algo:tdma-1}
+\algsetup{indent=2em}
+
+\begin{algorithmic}[1]
+
+\STATE $n_i.t \gets 0$ %\COMMENT{$t$ indicates time slot}
+\STATE $n_i.sendFirstTime \gets -1$
+\IF{$n_i == masterNode ||$ successfully received a packet P}
+\WHILE {$n_i.t < 2n^2$ or $n_i.parent == null$}
+    \WHILE{interval \% 10!=0}
+        \STATE hold
+    \ENDWHILE
+	\IF {$n_i.t \% n \neq i$ or $n_i.parent == null$}  %{$n_i$ listens to the channel}
+	  \IF {$n_i$ successfully received a packet $P$}
+	    \IF {$n_i.parent == null$}  %{$n_i$ receives a packet for the first time}
+	       \STATE $n_i.parent \gets P.src$  %{$P$ contains the source info}
+            \STATE $n_i.t \gets P.t$
+	    \ELSIF {$P.src == n_i.botId$} %{$P.src \notin n_i.child$}
+	       \STATE $n_i.child \gets P.botId$  %{$P$ comes from one of $n_i$'s children}
+	
+	    \ENDIF
+        \STATE $n_i.t=P.t$
+	    %\STATE $n_i.DATA[P.src] = P.DATA$  %{update correspondent data content}
+	  \ENDIF
+	
+	\ELSE  %\COMMENT{$n_i$'s turn to transmit}
+	  \IF {$n_i.parent \neq null$}
+	     \STATE $n_i$ sends a packet $P$(=$P.n_i, P.src, n_i.t, timeStamp(hh, mm,ss)$, ''I'm alive") containing the information of the $n_i$:\{ID, timestamp, level, "I'm alive"\}
+         \IF {$n_i.sendFirstTime == -1$}
+             \STATE $n_i.sendFirstTime \gets n_i.t$
+         \ENDIF
+	  \ENDIF
+	\ENDIF
+
+    \IF {$n_i.t == n_i.sendFirstTime + n$ and $n_i.child == \emptyset$}
+        \STATE $n_i.isLeaf \gets true$
+    \ENDIF
+
+  \COMMENT{Entering data transmission phase.}
+  \IF {($n_i.isLeaf == true$ or $n_i.hasReceivedFromAllChildren=true$) and $n_i.t\%n==i$}
+    \STATE $n_i$ sends a DATA packet $P$ containing all the data gathered by $n_i$ and its children, i.e., $n_i.DATA[j]$ for all $n_i'$ child $n_j$.
+
+  \ELSE
+    \IF {$n_i$ successfully received a packet $P$}
+      \STATE $n_i.DATA[P.src] \gets P.DATA$
+      \IF {$n_i$ has successfully received all packets from all children}
+        \STATE $n_i.hasReceivedFromAllChildren \gets$ true.
+      \ENDIF
+    \ENDIF
+  \ENDIF
+  \STATE $n_i.t \gets n_i.t + 1$
+\ENDWHILE
+\ENDIF
+\end{algorithmic}
+\end{algorithm}
+
+% \section{\bf{TODO:} Some concerns and questions.}
+% \emph{From Jin: After talking to Andrea, I updated the algorithm to Algorithm~\ref{algo:tdma-1}. In Algorithm~\ref{algo:tdma-1}, nodes utilize the tree structure when propagating the data.}
+% 
+% \begin{enumerate}
+% 	\item How does the node realize it is a leaf node? I do not recall exactly Chenyang and Andrea's idea on this. My understanding is that the nodes have to wait long enough time to claim themselves as a leaf node, maybe another $n$ slots? Please feel free to fill this in, thanks.
+% 
+% (From Xinhui: My idea is to also propagate the level and parent information. Assume that a node propagate its information and its parent information, its parent and its children will receive the information. So the parent should get its children's level information in next round(let the duration of a round be $n$). If not, then the node is a leaf node.)
+% (From Jin: This has been resolved as of 04/26/2012.)
+% 
+% 	\item What's the use of \emph{level} here? I know that in a centralized setting, we could start from the bottom and propagate all the way to the top. However, in a decentralized setting, like the way I describe the protocol as for now, how do we accomplish this level by level way of traversing? In other words, how can we make sure that each node not only knows the current time slot, but also knows which level the protocol is executing on in a decentralized manner? If this is not possible, then maybe considering a tree structure is not necessary, since right now the protocol I wrote does not utilize the tree structure to send messages anyway.
+% 
+% (From Xinhui: I think the level id is used to determine in which round the node should propagate its information. All the nodes in the same level should update its level after it gets its parent's information. After we build up the tree, the bottom up propagation is also processed level by level, if the node doesn't know all the information of the whole tree.)
+% (From Jin: This has been resolved as of 04/26/2012.)
+% 
+% \end{enumerate}
+	
+\end{document}

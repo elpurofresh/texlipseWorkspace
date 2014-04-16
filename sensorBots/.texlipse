@@ -1,0 +1,14 @@
+#TeXlipse project settings
+#Mon Oct 29 11:36:02 MST 2012
+markTmpDer=true
+builderNum=6
+outputDir=
+makeIndSty=
+bibrefDir=
+outputFormat=pdf
+tempDir=tmp
+mainTexFile=algorithm.tex
+outputFile=algorithm.pdf
+langSpell=en
+markDer=true
+srcDir=

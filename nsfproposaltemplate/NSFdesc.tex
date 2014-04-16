@@ -1,0 +1,349 @@
+% !TEX root = NSFmaster.tex
+%%%%%%%%% PROPOSAL -- 15 pages (including Prior NSF Support)
+\begin{center}
+{\large \bf RI: Small: Improving State Estimation using Aggressive Maneuvers for Aerial Robots}
+\end{center}
+\begin{center}
+\section*{Project Description}
+\label{sec:description}
+\end{center}
+
+\section{Introduction}
+\label{sec:intro}
+%%%
+% \begin{floatingfigure}[r]{0.45\textwidth}
+% \begin{center}
+% \includegraphics[scale=0.7]{gps_coverage}
+% \caption{The Navigation Gap.}
+% \label{fig:big_picture}
+% \end{center}
+% \end{floatingfigure}
+%%%
+
+Unmanned Aerial Vehicles (UAVs) are sustained in flight by aerodynamic lift and guided without an onboard crew. They may be expendable or recoverable and can fly autonomously or semi-autonomously. Historically the greatest use of UAVs has been in the areas of surveillance and reconnaissance~\cite{dod}. Recently the operation of unmanned aerial vehicles (UAVs) has expanded from military to civilian applications where human intervention is impossible, risky or expensive e.g. hazardous material recovery, traffic monitoring, disaster relief support, military operations etc.  Whereas most of the proposed approaches for autonomous flying~\cite{stefan,campoy,mit,theodore} focus on systems for outdoor operation, vehicles that can autonomously operate in cluttered urban canyons are envisioned to be useful for a variety of applications including surveillance and search and rescue.   
+
+Contrary to remote-controlled tasks in a high altitude, low-altitude flight in an urban environment requires a higher level of autonomy to respond to complex and unpredictable situations. While GPS has been the driving factor behind most of these UAVs, there are limitations to GPS that have become more evident over time as we have increasingly come to rely on navigation. The shortfalls in GPS could be called the “navigation gap”, as depicted notionally in Figure~\ref{fig:big_picture}.  The horizontal axis represents the continuum between urban/indoor and rural/open environments.  The vertical axis roughly represents altitude, from ground level all the way up to space.   GPS does a great job of covering much of this two-dimensional trade space (indicated by the solid blue shape), but GPS by itself is not sufficient when moving close to the bottom left corner of the graph.  Recent advancements in high-sensitivity GPS have helped to decrease the size of this gap (indicated by the striped blue shape), but there still remains a gap where availability, accuracy, or reliability of GPS by itself is not sufficient for many applications. Ironically, it is in just such urban/indoor locations where many UAVs are being asked to spend most of their time. Operations in urban canyons and indoor environments require the vehicle to autonomously maneuver through openings, down hallways, and around obstacles, all necessitating highly accurate position estimation and environment mapping (Figure~\ref{fig:uavurban}). While many ground vehicle solutions exist that perform autonomous indoor operations, these vehicles typically utilize multiple localization sensors at the expense of weight. UAVs and especially micro aerial vehicles (MAVs) are stringently weight-constrained, with mass adversely affecting agility, endurance, and range.   
+
+Finally, the more complex dynamics of a flying platform poses substantially higher requirements on the accuracy of state estimates than for typical ground-based vehicles. For example an error of 1 degree in the pitch estimate would cause an error of 0.2m in the estimate of the longitudinal distance. Thus, such a relatively small error would force an error of half a meter within two and half seconds. Whereas in outdoor scenarios such a positioning error can often be neglected, it is not acceptable in urban canyons and indoor environments, as the free-space around the robot is much more confined.
+
+% \begin{figure}[ht]
+% \begin{center}
+% \includegraphics[scale=1.0]{uavurban}
+% \caption{Urban Operation of UAVs}
+% \label{fig:uavurban}
+% \end{center}
+% \vspace{-0.3in}
+% \end{figure}
+
+
+Among many possible alternative navigational sensors for these purposes,  image-aided navigation is ideal for navigation of UAVs for the following reasons. First, there is a strong natural precedent in the animal kingdom. Many animals have been shown to utilize visual information for navigation. In fact, the ocular-vestibular system provides the primary navigation suite for humans. Secondly, optical sensors are inherently high-bandwidth. This results in the potential for very precise angular resolution. Digital imaging sensors are readily available and easy to interface with, which makes them a very practical solution for investigation of navigation potential.  Finally most UAVs carry cameras for some purpose and hence we can use them for the dual purpose of accurate state estimation. For aerial vehicles that do not have access to a global positioning system, a combination of inertial and visual sensors is generally considered the solution~\cite{uav2009, rock, nick1}.   The two sources of information, vision and GPS/INS, for air vehicle state estimation are complementary. For example, distinguishing between small rotation and small translation is extremely difficult from images alone, because with a limited field of view a yaw rotational motion can appear virtually the same as a lateral translation. This ambiguity can be resolved by fusing gyro sensors to counteract image ambiguity. On the other hand, estimating a large motion by integrating inertial sensor output over a period is prone to drift (especially at slow speed), but vision can provide a good estimate as it ensures a long baseline. Further, while GPS provides stable geodesic position information, it can suffer from intermittent loss of measurement due to a multi-path errors or jamming problems. 
+
+\section{Objectives and Related Work}
+\label{sec:obj}
+Systems are currently under development that address the autonomous flight problem for indoor, GPS-denied, or unknown environments. For example~\cite{amidi1996} describes vision aided navigation for an autonomous helicopter where a stereo pair is used to aid in station keeping.~\cite{corke} describes a flight control system for a helicopter that uses a stereo pair to determine altitude and optical flow to determine ground speed.  Vision-based state estimation for UAVs based on techniques derived from structure from motion are described in ~\cite{webb2007,watkins2005,diel2005, kanade2004, sik2008}.~\cite{wu2005} describes a vision-aided inertial navigation system that relies on measurements to a known target for vehicle state estimation.~\cite{ascending, nick1, flowers} present quadrotor micro aerial vehicle (MAV) solutions that utilize downward-looking cameras to enable drift-free autonomous hover.~\cite{langelaan} describes an solution to problem of estimating vehicle state (its position, orientation and velocity) as well as the positions of obstacles or landmarks in the environment using only inertial measurements and a monocular camera.~\cite{frew} describes a solution for target localization using monocular vision.~\cite{edwards2007, proctor2006, kurdila2004, johnson2007, ettinger2002, cpc2006, cpc2007, bazin2008, taylor2003} are recently developed systems that integrate vision with inertial sensors for UAV navigation.~\cite{mukai1999, okatani2002, tomono2005} have developed algorithms that integrate vision and inertial sensors for pose estimation. 
+
+The above approaches try to increase the accuracy of state estimation by combining vision with other sensors (GPS and/or INS) using various algorithms. All these algorithms depend on detection of features whether they be landmarks, corners or other statistical descriptors (for example SIFT~\cite{sift}, SURF~\cite{surf}).  Intuitively it makes sense that if we are able to detect and track more features then our estimator would be more accurate. Current research methodologies try to do this by either designing better feature detectors (CENSURE~\cite{konolidge2006}),  or by designing better and more robust feature tracking algorithms. There are a number of researchers working in these fields and ~\cite{konolidge2007} provides a good overview of those methods. 
+
+In contrast to these approaches our proposed research asks the following question. {\bf Given a specific feature detector and a feature tracking algorithm is there a way to maximize the number of features that are detected and tracked by varying the maneuvers that the aerial vehicle can perform?}. We propose to solve the problem in two ways
+{\bf
+\begin{itemize}
+
+\item We specifically execute maneuvers such that enough motion excitation is generated to provide adequate state estimation i.e., we depart from conventional wisdom and specifically perform maneuvers to increase our feature detection and tracking
+
+\item At a higher level, we plan the vehicle flight path to maximize the information content of sensor measurements. 
+
+\end{itemize}
+}
+
+\subsection*{Novel aspects of the technical approach: Four elements}
+
+\begin{enumerate}
+
+\item A focus on estimation while taking the dynamics of the vehicle into account: Assessing the estimation error and developing control algorithms that  are able to maneuver the vehicle towards higher estimation accuracy forms a major part of this proposal. It involves formulation of an optimization problem whose objective emphasizes the estimation accuracy 
+
+\item Treatment of wide range environments: indoors, outdoors and transition from indoors to outdoors. The choice of multiple aerial vehicles: indoor helicopters, outdoor helicopters and fixed wing vehicles, their dynamics and the ability to test them in various environments are an integral part of this proposal. 
+
+\item Systematic modeling: Our approach is to formulate the
+problem in general mathematical terms and then, given the required response times, 
+simplify so as to obtain a practicable solution. Within the general
+framework, the process of simplification will proceed in a systematic fashion
+and employ consistent notation. Ultimately systematized modeling considerations
+will lead to a better understanding of the plausibility of modeling
+simplifications beyond the problem domains described. For instance, although we are using vision as the primary sensing mechanism, our algorithms will work with any combination of sensors. Indeed we are not developing better visual odometry algorithms but are trying to solve the fundamental question of better state estimation by combining estimation algorithms with control. Our test criteria are primarily environments that are hard to fly in (long corridors with no features, canyons with little or no gps coverage etc) 
+
+\item Our approach of maximizing the number of features tracked while simultaneously planning dynamically feasible paths to the goal is a variation of the classic ``exploration vs exploitation" problem. We believe that our information maximizing algorithms can be adapted to a wide range of highly dynamic vehicles (underwater vehicles, legged robots, dynamic manipulation etc) to plan paths that are dynamically feasible and maximize the information content.
+
+\end{enumerate}
+
+
+Our proposed approach takes  the dynamics of the aerial vehicle into account explicitly. For aerial vehicles, accurate state estimation is necessary for high-bandwidth control. A 5 degree error in pitch estimate for helicopters would not only place the vehicle a couple of meters away in a few seconds ($\tan(5)*9.81 \approx  1 $ meter) but would also make the aerial vehicle go into highly unstable oscillations and finally crash. Our proposed solution to the problem is to execute maneuvers that generate "better" state estimates. For example for a helicopter, if enough features are not detected, the helicopter goes into an aggressive flight mode so that enough features can be detected. 
+
+Of course the above approach is a local approach that maximizes the accuracy of the state estimator at any given time. We then ask the question, {\bf if it is possible to design flight paths that maximize the sensing information}. Recently several research groups~\cite{nick1, bach2011, weiss2011} presented a system for navigating a small-size quadrotor without GPS. They solve the problem of path-planning  to minimize localization uncertainty.  {\bf The main drawback of these algorithms is that the dynamics of the vehicle are not taken into account. The problem is primarily treated as a kinematic planning problem}. Also the low level controller is assumed to be stable. While this is true of some vehicles such as quadrotors, this is not the case with the vast majority of aerial vehicles (i.e., helicopters and fixed wing aerial vehicles). In contrast, we are explicitly interested in maximizing the accuracy of the estimator both at the low-level controller layer and the higher level path planning layer. Our proposed research while inspired by these approach explicitly takes the dynamics of the aerial vehicles into account. Furthermore all these approaches use scan matching (LIDAR) or feature matching (monocular or stereo vision) techniques for state estimation. While these techniques work reasonably well, they fail when the vehicle has fast motions or the environment has no features. {\bf Our proposed approach takes the complementary view that control and estimation should be treated together and the uncertainty in estimation can be minimized by designing better controllers.}
+
+Many other techniques have been proposed~\cite{lavalle2006, lavelle 2001} for this type of motion planning, with both randomized kinodynamic planning ~\cite{bruce2007} and nonlinear optimization techniques commonly implemented. The advantage of randomized methods is in their rapid exploration of high dimensional spaces, providing feasible solutions much more rapidly than optimization based methods. On the other hand, optimization methods result in locally optimal control inputs and therefore achieve flyable and appealing trajectories more easily, whereas randomized selection of control inputs leads to circuitous paths that can be far from distance or time optimal. When the full vehicle dynamics are considered the parameter space of the problem for such methods is enormous. Furthermore these techniques assume that the state estimate of the vehicle is given. In our proposed approach we wish to develop paths that maximize the state estimate in real-time. {\bf Our approach seeks to build on the existing roadmap techniques using  a set of simple precomputed optimal control motions called primitives but with one major difference: Whenever the accuracy of the state estimator falls below a certain threshold (i.e, either enough number of features are not being detected or tracked), we choose one of the pre-determined maneuvers that increase the accuracy of the state estimator. Once the accuracy of the state estimator is above a certain threshold we fall back on the standard roadmap technique.}
+%\begin{figure}[ht]
+%\begin{center}
+%\subfigure[Autonomous Helicopter Testbed]{
+%\includegraphics[scale=0.4]{heli0}
+%\label{fig:heli}
+%}
+%\subfigure[Sensors and Flight Computer]{
+%\includegraphics[scale=1.2]{avatar_box2}
+%\label{fig:sensors}
+%}
+%\label{fig:heli1}
+%\end{center}
+%\end{figure}
+
+
+
+Before describing our proposed research algorithms, the next section describes our version of combining vision and inertial sensors for state estimation. Note that our proposed research is not dependent on the type of the algorithm used for feature detection, tracking or fusion of the inertial and visual sensors. Although the algorithm presented in the next section fuses features detected using Lucas Kanade algorithm~\cite{klt, tomasi, baker2004} on a stereo camera, any other feature detectors can be used. Similarly, although we are using an Extended Kalman filter for fusing inertial and visual estimates other algorithms such as Unscented Kalman Filters, Sigma Point Kalman Filters and Particle filters can also be used. 
+
+\section{Previous Research}
+\label{sec:prev}
+
+% \begin{figure}[ht]
+% \begin{center}
+% \includegraphics[scale=1.0]{feature_track}
+% \caption{Overview of Image Aided Inertial Algorithm}
+% \label{fig:feature_track}
+% \end{center}
+% \vspace{-0.3in}
+% \end{figure}
+
+Image-aiding methods are typically classified as either feature-based or optic flow-based, depending on how the image correspondence problem is addressed. Feature-based methods determine correspondence of features (or “landmarks”) in the scene over multiple frames, while optic flow-based methods typically determine correspondence for a whole portion of the image between frames. Optic flow methods have been proposed generally for elementary motion detection, focusing on determining relative velocity, angular rates, or obstacle avoidance~\cite{kehoe2006}. Feature tracking-based navigation methods have been proposed both for fixed-mount imaging sensors or gimbal-mounted detectors which “stare” at the target of interest. Many feature tracking-based navigation methods exploit knowledge (either a priori, through binocular stereopsis, or by exploiting terrain homography) of the target location and solve the inverse trajectory projection problem~\cite{soatto1996, soatto1997}. If no a priori knowledge of the scene is provided, estimation of the navigation state is completely correlated with estimating the scene. This is referred to as the structure from motion (SFM) problem~\cite{triggs2000, zhang1999, zhang1998, vedaldi2007}. A theoretical development of the geometry of fixed-target tracking, with no a priori knowledge is provided in~\cite{favaro2002}. An online (extended Kalman filter-based) method for calculating a trajectory by tracking features at an unknown location on Earth’s surface, provided the topography is known, is given in ~\cite{davison2007, corke2004}. 
+
+The basic concept of image-aided inertial navigation is illustrated in Figure~\ref{fig:feature_track}. The algorithm consists of the following fundamental steps: At time epoch $t_{i}$ the system captures an image of the environment using its digital imaging device and converts this image to a set of discrete features expressed in a space referred to as the feature space. Next, both the navigation state and the feature space state are propagated to time epoch $t_{i+1}$, the next imaging event. At $t_{i+1}$ another image is captured and transformed to feature space.  Both the feature space of the captured image frame at time $t_{i+1}$ and the propagated feature space are input to a feature correspondence algorithm that associates features at time $t_{i}$ to features at time $t_{i+1}$. Finally, the trajectory error is estimated using these associated features in a Kalman estimator. 
+
+%\subsection{Results from combining stereo based visual odometry with inertial sensors}
+%\label{sec:gpsest}
+
+%\begin{figure}[ht]
+%\begin{center}
+%\includegraphics[scale=1.0]{rates}
+%\caption{Comparison of angular rates measured by the IMU and by VO(left column), 
+%and linear velocities measured by GPS+IMU and by VO(right column). All values 
+%are expressed in the helicopter body coordinate frame.}
+%\label{fig:rates}
+%\end{center}
+%\vspace{-0.3in}
+%\end{figure}
+%
+
+
+We have implemented the above feature detection, tracking and inertial fusion algorithm on our aerial platforms (described in detail in the facilities section). 
+Our stereo visual odometry algorithm is based on the approach described by
+Matthies and Shafer in~\cite{shafer} and refined by Matthies in~\cite{mathies}. We track point landmarks
+across sequential stereo image pairs, and find the incremental change
+in camera pose by aligning corresponding sets of triangulated landmark positions.  For each selected left image point, we then search for a corresponding point in the right image using normalized cross-correlation. The 3D positions of the landmarks are found by stereo triangulation. At each time step, the triangulation procedure above yields two sets of corresponding
+3D landmark observations, before and after the helicopter has undergone
+an unknown rotation $R$ and translation $T$. These are calculated using a non-linear least squares estimation technique. Once $R$ and $T$ are obtained, these visual and inertial measurements are fused in an extended Kalman filter 
+(EKF) to produce an estimate of the vehicle state. Further 
+details on the EKF implementation are available in~\cite{srikthesis}. 
+
+% \begin{figure}[ht]
+% \begin{center}
+% \subfigure[Filtered GPS+IMU position estimate versus VO position estimate. The
+% VO trajectory exhibits a characteristic misalignment due to the integration of small
+% orientation errors over time. The difference between the final GPS+IMU position
+% and the final VO position is 14.7 meters for a 405.5 meter flight.]{
+% \includegraphics[scale=0.82]{vo_only}
+% \label{fig:voonly}
+% }
+% \subfigure[Filtered GPS+IMU position estimate versus filtered VO+IMU position
+% estimate. A single end label is shown, as the difference between the final GPS+IMU
+% position and the final VO+IMU position is only 1.6 meters for a 405.5 meter
+% flight.]{
+% \includegraphics[scale=0.82]{vo_imu}
+% \label{fig:voimu}
+% }
+% \caption{Experimental Results comparing VO + IMU with IMU + GPS}
+% \end{center}
+% \vspace{-0.3in}
+% \end{figure}
+
+We evaluated the accuracy of the system by comparing the output from the
+Kalman filter using GPS and IMU measurements with the integrated output
+from VO alone, and with the output from the Kalman filter using both VO
+and IMU measurements (Figures~\ref{fig:voonly} and~\ref{fig:voimu}).  The final position estimate computed using VO has an error of 3.7\% relative to the GPS+IMU position. This is comparable to previous visual odometry
+results for ground robots~\cite{nister}, although ground robots usually move more
+slowly than the helicopter. The final position estimate computed using filtered
+VO+IMU data differs by only 0.4\% from the GPS+IMU position - this difference
+is almost an order of magnitude less, as a percentage. More importantly,
+although the VO+IMU position estimate is noisy, it tracks the GPS+IMU
+estimate over the entire flight. While the results are satisfactory, there are two main drawbacks a) The aerial vehicle has no idea on what to do when the state estimator is noisy. b) For a given starting location and a goal location, is it possible to choose paths that have good estimation accuracy. 
+
+
+\section{Proposed Research}
+\label{sec:prop}
+
+The PI has significant expertise in key research areas. related to aerial vehicle estimation and control. As such, the proposed research is informed by previous work on estimation, system identification, control and visual-servoing for aerial robots~\cite{sriktra2003,srik2002}. We have examined in detail GPS-denied state-estimation and navigation for aerial vehicles using vision\cite{uav2009,corke}; target tracking using aerial vehicles~\cite{luis2006}; spacecraft emulation using vertical take-off and landing vehicles~\cite{mars2002}; autonomous landing of helicopters using visual servoing~\cite{icra2007}; sensor deployment using aerial vehicles~\cite{network2004}; obstacle avoidance and mapping for aerial robots~\cite{cmu2007}. We have extensive experience in combining inertial sensors with non-GPS sensors (primarily vision) for estimating the state of aerial vehicles as well as visual tracking and autonomous landing. In recent work we have addressed the problem of integrating vision for estimation as well as control for autonomous helicopters. This work has also included building an experimental testbed which will be used in proposed research. Specific to the current proposal, the PI have preliminary work (discussed in the previous section) on combining visual and inertial sensors for estimating the state of an aerial vehicle in GPS-denied environments~\cite{uav2009}.  Our proposed work builds on the estimation and identification algorithms that have been described above. In fact we will use the above validated algorithms as our benchmarks. 
+
+
+%Manuevers that reduce covariance
+%Feedback loop oscilations
+%How to detect when to do a particular manuever i.e, when is hoverig better than banked turn
+%Use ROS and gazebo simulations
+%Incorporate ekf with dynamic programming
+%Incorporate another ekf to track feature space
+
+\subsection{Maneuvers for Accurate State Estimation}
+\label{sec:maneuvers}
+We consider the problem of developing aerial maneuvers  for increasing the accuracy of vision aided state estimation. More specifically we propose to develop specific aerial maneuvers that reduce the covariance of the state estimator. For the sake of clarity, let us assume that features are represented by N points of interest with known positions $X_{i} = (x_{i}, y_{i}, z_{i})$. Also let us assume the aerial vehicle knows its state i.e., position, attitude and velocity before it looses these feature points. This state of the aerial vehicle is given by $X_{t} = (x_{t}, y_{t}, z_{t}, u_{t}, v_{t}, w_{t}, \phi, \theta, \psi)$ i.e., position, velocity and attitude of the vehicle. If we consider motion from one frame to the other, we can model each of these feature points by a random walk model given by
+
+\begin{equation}
+X_{i}(t+1) = X_{i}(t) + w_{t} 
+\label{eqn:eqn1}
+\end{equation}
+where $w_{t} \approx N(0, Q)$ and $X_{i}(t) = (x_{i}(t), y_{i}(t), z_{i}(t))$. We can capture the information content of these feature points by using the information matrix. $Y_{i}(t|0) = (P_{i}(t|0))^{-1}$, where $(P_{i}(t|0))$ is a fictitious covariance matrix that is given by
+\begin{equation}
+(P_{i}(t|0)) = E{(\hat{X_{i}(t|0)} -X_{i})(\hat{X_{i}(t|0)} - X_{i})^{T}}
+\label{eqn:eqn2}
+\end{equation}
+where $\hat{X_{i}}(t|0)$ is the estimate of $X_{i}(t|0)$. It might seem strange to estimate the covariance of features whose position is already known to us, but in our case this gives a measure of the quality of these features. Note that this covariance is different from the covariance that is obtained from a feature tracker or  a structure from motion algorithm like a sparse bundle adjustment. As will be shown below this covariance matrix is inherently tied to controller. We propose to use an extended information filter (EIF)  to compute the expected quality of each of the feature points. From~\cite{thrun} the EIF is given by
+\begin{align}
+Y_{i}(t|t) &= Y_{i}(t|t-1) + H^{T}_{i}(t)R^{-1}H_{i}(t)\\
+Y_{i}(t+1|t) &= ((Y_{i}(t|t))^{-1} + Q)^{-1}
+\end{align}
+
+The matrix $H(t)$ is the jacobian of the model for detection of the features. $Q$ and $R$ represent the process and the measurement noise respectively. Naturally these are dependent on the feature detection algorithm and the feature tracking algorithm and will have to be experimentally calculated. 
+
+
+\subsection{Control Inputs and Cost Function}
+\label{sec:control}
+Without loss of generality, we can define the control inputs for an aerial vehicle ($u$) as the roll rate, pitch rate, yaw rate and the thrust produced in the vertical direction. Note that this is a generalization for both a fixed wing and a rotary wing vehicle. For a helicopter the control inputs are usually the lateral cyclic (changes the roll rate), the longitudinal cyclic (changes the pitch rate), heading and the collective (changes the total upward thrust). Similarly for a fixed wing  vehicle the control inputs are the ailerons, elevator, thrust etc. Our goal is to find a control input sequence that minimizes a scalar cost function $L(\cdot)$ measuring the quality of the features in some sense. We also impose constraints on the control signal that are defined by the set $U$ that is defined as
+\[ U = (u | -u_{min} \leq u \leq u_{max})\] 
+
+If we define an augmented information matrix, by assuming that all the features are independent as
+\[ \Gamma = diag(Y_{1}, Y_{2}, \cdots, Y_{N})\]
+We can then define our cost function based on this augmented matrix. We propose to evaluate three cost functions. The first one is the determinant of the augmented information matrix
+\[ L(\Gamma) = -det (\Gamma) \]
+An equivalent cost function that can be used but which we think has much better numerical properties is the logarithm of the determinant
+\[ L(\Gamma) = -\Sigma(\ln det (\Gamma))\]
+An alternative cost function that we propose to evaluate is the trace of the augmented information matrix inverse
+\[ L(\Gamma) = (trace (\Gamma))^{-1}\]
+Now we can define our problem mathematically as minimize $L(\Gamma)$ such that the control inputs lie within the control set $U$. $Y$ represents the information content of the features i.e., if the number of features that are detected are greater then the information content is maximized. This is a variation of the stochastic optimal control problem that has been well studied in literature~\cite{optimal}. In contrast to standard approaches in literature our cost function tries to maximize the number of features that are detected using the information filter. A standard solution to the problem will be to use a non-linear gradient search for the solution. Finding a real-time solution for this problem is computationally expensive. 
+
+We propose the following approach: We precompute many simple and versatile optimal motions offline. We call these pre-computed offline trajectories as maneuvers. Intuitively it seems that these maneuvers will consist of slow forward flight, banked turns etc. It also seems that some fast maneuvers might also be ideal for tracking features and increasing the accuracy of the estimator. We propose to develop a library of these maneuvers. If the covariance of the state estimator is above a certain threshold then the controller automatically starts executing these maneuvers. The natural question to ask then is what is a good threshold for the state estimator. We believe this will depend on the dynamics of the vehicle, the feature detection algorithm, speed of the vehicle. The naive approach is to pick a threshold based on previous flights. The other approach is to pick this threshold based on how much the vehicle has deviated from its trajectory. This leads us to our Probabilistic RoadMap Planner for higher level planning that will be discussed in the next section. 
+To develop this library of maneuvers we will build a simulation environment. For the simulation environment we will use the open source ROS~\cite{ros} combined with Gazebo~\cite{gazebo}. The PI is the lead developer for the aerial vehicle models in Gazebo. ROS is an open-source, operating system that provides hardware abstraction, low-level device control, message-passing between processes, and package management. It is ideal for interfacing between sensors and control algorithms and is currently being developed at various laboratories all over the world. 
+
+\subsection{Evaluation: Cramer-Rao Lower Bound (CRLB)}
+\label{sec:crlb}
+We propose to evaluate our proposed approach by using the Cramer Rao Lower Bound, a lower bound on the variance of any unbiased estimator. In parameter estimation the CRLB is the inverse of Fisher matrix. For dynamic systems one can use the parametric or the posterior CRLB. We propose to use  parametric CRLB to give an interpretation of the information value that is used as the objective function.  The parametric CRLB is given by
+\[ P_{t|t} = E_{\hat{X}_{t|t}}{(\hat{X_{t|t}} - X^{*}_{t})(\hat{X_{t|t}} - X^{*}_{t})^{T}} \]
+where the superscript $*$ denotes the true values. The matrix $P$ denotes the covariance of the filter. For an EKF the CRLB is evaluated for the true trajectory. If we use the true positions for the features then the CRLB is computed during the extended information filter. It follows that the information matrix $Y_{i}$ for a feature $i$ can be considered as the upper information bound. Of course since there will be errors in the calculation of the features, we will not be able to track the CRLB, but it makes sense to maximize the upper information bound from a estimation perspective. While evaluating our control maneuvers we will use the CRLB to see how well the filter is performing. 
+
+{\bf In summary we plan to a) Develop an extended information filter that maximizes the number of features detected; b) Based on this filter we will develop an optimal controller that uses the information matrix as the cost criterion c) In simulation using gazebo and ROS, we will use dynamic programming to solve this optimal control problem. d) For real-time implementation we will precompute many simple and versatile optimal motions offline, that can then be combined into longer more complicated trajectories. e) The effectiveness of these maneuvers will be evaluated by using the Cramer-Rao Lower Bound. f) These will be experimentally validated on our outdoor helicopter as well as fixed-wing platform and also on a smaller indoor platform. We have permission from the FAA to fly our autonomous helicopter and fixed wing vehicles in Las Cruces, New Mexico.}
+
+\section{Probabilistic RoadMap based Maneuver Sequencing}
+\label{sec:prm}
+In the previous section we have proposed algorithms to develop maneuvers that increase the accuracy of the state estimator. These maneuvers were local i.e., if the vehicle's state estimate was not good enough, then the vehicle would perform these maneuvers. {\bf For the higher-level path planning we base our approach on precomputing various maneuvers, that are either optimal in terms of the state estimator or for reaching the goal or both.  Furthermore, these motions can be combined to form not only a single trajectory but also a tree or a graph whose edges are the motions. This graph can be expanded towards parts of the space that might lead to more optimal trajectories and it would also contain edges reaching the goal state therefore, such a graph, termed roadmap, contains many possible trajectories to the goal. Finding the optimal trajectory then amounts to finding the shortest path in the graph. Thus, a roadmap representation has two main advantages: it provides a compact way to encode many different paths from the start state; it lends itself to well-established dynamic programming methods for finding an optimal solution satisfying the dynamics by construction. In essence, the roadmap framework can be used to transform a very high-dimensional differential problem into a lower dimensional algebraic problem (figuring out how to sequence simple motions) and graph search problem (finding the best path). The solution is as good as the approximation–the bigger and denser the space the roadmap covers and the richer the set of primitive motions used, the more optimal the solution would be.} 
+
+Our approach is based on the incremental roadmap planning algorithm. The algorithm is given a root node $n_{r}$ and goal node $n_{g}$ containing the initial and final desired states. A given minimum desired trajectory cost $c_{des}$ serves as a termination condition. At every iteration a new node $n_{s}$ is sampled from the state space. The tree expansion relies on a distance function between the nodes. The ideal distance function is the same of the objective function to be minimized. Since newly sampled nodes are not yet connected to the tree, there is no way of knowing what this cost is and therefore a heuristic distance is used that underestimates the true distance. All existing nodes are then sorted using this cost in an array $N_{b}$. The tree is then extended from the best node (with lowest cost) in this array $n_{b}$ to the sample. The function "Extend" relies on a local planner that usually reaches the sample node $n_{s}$ only approximately resulting in a new node $n_{s'}$ . If the new resulting cost at $n_{s'}$ has a chance of improving the current best cost $c_{best}$ then the edge is added. Then, an attempt is made to reach the goal from the newly added node. If this succeeds and the best cost is improved, then the tree can be pruned and the algorithm continues.
+%\begin{algorithm}[t] 
+%\SetLine
+%$N = \{n_{r}\}$\;
+%$c_{best} = \infty$\;
+%\While{($c_{best} > c_{des}$)}{
+%	$n_{s}$ = Sample()\tcp*[f]{sample new node}\;
+%	$N_{b}$ = Sort ($N, n_{s}$)\tcp*[f]{sort by distance to $n_{s}$}\;
+%	\For{$i = 1: size(N_{b})$}{
+%		$n_{b} = N_{b}(i)$\;
+%		$e_{(b,s')}$ = Extend($n_{b}, n_{s}$)\tcp*[f]{extend towards sample}\;
+%		\If{($e_{(b,s')}$ AND ImproveCost($e_{(b,s')}$)}{
+%			\tcp*[f]{if cost can be improved}\;
+%			$N = N \bigcup n_{s'}$\tcp*[f]{add node to roadmap}\;
+%			$E=E \bigcup e_{(b,s')}$\tcp*[f]{extend towards goal}\;
+%			$e_{(s',g')}$ = Extend($n_{s'}, n_{g}$)\;
+%			\If{($e_{(s',g')}$ AND ImproveCost($e_{(s',g')}$)}{
+%				$N = N \bigcup n_{g'}$\;
+%				$E=E \bigcup e_{(s',g')}$\;
+%				$c_{best} $= cost-to-come at $n_{g'}$\tcp*[f]{update best cost}\;
+%				Prune($N$)\tcp*[f]{prune nodes with higher cost}\;
+%			}
+%		}
+%	}
+%}
+%\caption{Probabilistic RoadMap}
+%\label{alg:alg1}
+%\end{algorithm}
+Local planning between nodes can be accomplished in several different ways. In some cases, e.g. when considering unconstrained kinematic systems, a trajectory can be computed simply using interpolation. A more general method applicable to systems with dynamics or under-actuation is to use a controller that stabilizes the system to the state of the new node. A drawback in such an approach is that the resulting path could be far from optimal and that often times it is necessary to stabilize to non-zero velocity states which raises issues of stability. A third approach is to use optimal control and nonlinear programming for computing an optimal trajectory. The drawback of that approach is that its convergence is very sensitive to the choice of initial guess and the computation is extremely costly. An alternative approach that we propose is to use a set of simple precomputed optimal control motions called primitives in order to construct more complex, suboptimal trajectories that approximately achieve the local plan very efficiently. Our primitives based approach is based on an approach introduced in~\cite{frazzoli2002}. We extend the approach by adding maneuvers that also increase the accuracy of the state estimate. In~\cite{frazzoli2002} two classes of primitives were introduced: Trim Primitives that correspond to continuously parametrized steady-state motions and Maneuvers are designed to efficiently switch from one steady-state motion to another. We add a third class called Information Maximizing Maneuvers that correspond to the trajectories that maximize the information content. 
+
+The motion planning problem can now be solved by finding a sequence of primitives consisting of trim primitives connected by maneuvers. Although by assumption the original control system is controllable, a system that is forced to move only along primitives might not be controllable to an arbitrary state.  Also since we have added a new form on maneuvers to the state space it is not clear how optimal the resulting path would be. We propose to study this in the simulation framework that we will develop in ROS. Since the extended information filter is a recursive state estimator, we are not certain if we can develop a close form solution for the stability of the system when augmented with these information maximizing maneuvers. Our goal is to benchmark this system in simulation with a stochastic optimal controller and a roadmap based controller.  
+
+\noindent Given these primitives the next step is to arrive at an algorithm to sequence them to obtain trajectories that go from a starting location to a goal location. We propose to evaluate two types of sequencing for these primitives:\\
+\noindent {\bf Greedy Sequencing:} The sampling based planners rely on a function "Extend" that must efficiently produce a trajectory connecting two nodes. In the primitives planning framework this amounts to first selecting a sequence of trim primitives and maneuvers. Although the resulting numerical problem is much easier than the original optimal control problem it still requires combinatorial search and iterative optimization. Instead, we use a simple sequencing strategy by replacing the set of continuously parametrized trim primitives by the discrete set of by trim primitives of exponentially increasing times. Sequencing primitives then proceeds in the most simplistic and greedy manner: go through all primitives compatible with the current one  and select the one that takes the vehicle closest to goal; keep iterating until distance to goal is less than some minimum. If at any point the covariance of the state estimator is more than a given threshold select the primitives that minimize this covariance. This is by no means optimal but we hypothesize that it is very efficient. We will evaluate how well this strategy works vis-a-vis the proper sequencing strategy described below. 
+
+\noindent {\bf Proper Sequencing:} Proper sequencing involves selecting a set of primitives that would result in a more optimal trajectory that reaches the sampled node exactly. Such a solution can be computed using nonlinear programming since in general it has no closed-form. We propose to use the greedy strategy explained above in real-time but will compute the optimal strategy to evaluate the greedy one. 
+
+
+\section{Evaluation}
+\label{sec:eval}
+Our baseline algorithm for the evaluation consists of two separate sets of sensors. As described in our previous work in section~\ref{sec:prev}, we have a stereo vision based visual odometry algorithm that is integrated with an inertial system and a GPS. This will form our baseline system. For each of the evaluation scenarios our baseline estimator will consist of a GPS /INS commercially available Novatel SPAN system~\cite{novatel}, our version of the state estimator that is obtained by combining the Honeywell IMU + Novatel GPS + Stereo Visual Odometry and our GPS-denied state estimator that combines our stereo visual odometry with the Honeywell IMU. Each of these systems has its own advantages and disadvantages. The commercial off the shelf navigational grade Novatel GPS/INS system uses a tightly coupled GPS/INS extended kalman filter and is our base line system when GPS is available. Our own estimator that combines GPS + IMU + stereo visual odometry is comparable to the commercial system but is not real time. When GPS is not available we will use our stereo visual odometry + IMU real-time extended kalman filter as our baseline system. One of the disadvantages of using stereo visual odometry is that we cannot fly at heights greater than 20M above AGL because of the limitations on the baseline. Also since our intent is not to test the feature tracking or detection or the state estimation algorithms our baseline algorithms are the well documented algorithms in literature. We propose to test our algorithms in the following scenarios (Note that these scenarios will be tested both in simulation and in real-world) :
+
+\begin{itemize}
+
+\item Cluttered Rooms with corridors between them: This environment has lots of features that can be detected and tracked in the rooms with relatively less features in corridors. Our initial evaluations will consist of testing our low level maneuvers for increasing the number of features detected. Intuitively since a corridor has no features, we would assume our helicopter to initially hover and then try various yaw maneuvers. We expect that none of the maneuvers will give any specific advantage for the local controller. On the contrary for the high level controller, as soon as the number of features drop the helicopter should starting moving from one room to another to detect more features and track them. 
+
+\item Moving from Outdoors to Indoors: This is an interesting case since where depending on the number of features that are present indoors the helicopter might hover for some time before proceeding. 
+\item Number of features detected:  Although the number of features that are detected is dependent on the feature descriptors that are used i.e., a corner detector might detect more number of features than a patch based feature descriptor, we hypothesize that the number of features might be a good metric to compute and change maneuvers based on these
+
+\item Long 3-5km traverses with simulated GPS dropouts: We are interested in testing the robustness of our algorithms when there is a large change in the number of features being tracked
+
+\item We plan to answer the question, whether a particular maneuver is well suited for accurate state estimation? i.e., if hovering is better than yaw maneuvers.
+
+\end{itemize}
+
+
+% \section{Experimental Validation}
+% \begin{figure}[ht]
+% \begin{center}
+% \subfigure[Indoor Helicopter Testbed]{
+% \includegraphics[scale=0.3]{smallheli}
+% \label{fig:indoorheli}
+% }
+% \subfigure[IMU + GPS ]{
+% \includegraphics[scale=0.2]{xsens}
+% \label{fig:gpsinssensor}
+% }
+% \subfigure[Lightweight Stereo Camera System]{
+% \includegraphics[scale=0.3]{bfin}
+% \label{fig:stereocamera}
+% }
+% \label{fig:heliindoor}
+% \end{center}
+% \vspace{-0.3cm}
+% \end{figure}
+
+\noindent An important aspect of this proposal is the experimental validation of the algorithms on aerial testbeds. We will use three different testbeds for our experiments.  Our first testbed is an autonomous helicopter that has been developed in our lab. The second tested is a fixed wing aerial vehicle that has been procured from a commercial vendor (Both these vehicles are described in the facilities section). Our third test bed will be an indoor helicopter platform that will be developed as part of the senior undergraduate capstone project. The helicopter is ideal for testing these algorithms since it can both hover as well as perform fast forward flight. Unlike quadrotors helicopters are highly dynamic in nature and hence need accurate high-bandwidth state estimates for control.  Our outdoor testing will be performed near Las Cruces, New Mexico. We have FAA permission to fly there. Most of the testing will be performed on the indoor helicopter platform(Figure~\ref{fig:indoorheli}. We will instrument our indoor platform with a COTS IMU + GPS (Figure~\ref{fig:gpsinssensor}), a stereo camera system (Figure~\ref{fig:stereocamera}), an ethernet hub and a small computer that gathers the raw images and transmits them via 802.11n to a quad core intel xeon computer that will perform all the processing. Our baseline estimator will be a Kalman filter based on GPS and IMU integration as described in section~\ref{sec:prev}. We will validate this algorithm with respect to accuracy: position error over long traverses on the order of 1-3 kilometers outdoors and complex indoor environments; robustness: ability of the estimator to cope with situations such as loss of visual estimates.  
+
+\section{Plan of Work}
+
+\begin{itemize}
+     \item {\bf Task 1}:  We propose to develop an Extended Information Filter for maximizing the number of features detected. Based on the EIF and the cost criteria based on the information matrix, we will develop an optimal control framework for the maneuvers. We will then compare each one of these maneuvers based on the various cost criteria as described in section~\ref{sec:control}. These will be evaluated based on the Cramer-Rao Lower bound. (Year 1)
+    
+    \item {\bf Task 2}: We will experimentally validate the above algorithm. We will compare the
+        extended Kalman filter formulation to our proposed information filter formulation. We propose to also develop an simulation framework based on the open source ROS operating system and Gazebo. Since our experimental testbed consists of a helicopter, we will also develop simulations for a fixed wing aerial vehicle. (Years 1 and 2). We hypothesize that some maneuvers are more suitable for accurate state estimation. Hence we plan to develop a library of these maneuvers that can be used for higher level path planning.  (Year 2)   
+
+ \item {\bf Task 3}:  The maneuvers that are the outcome of the previous optimal controller are local, i.e., if the vehicle’s state estimate was not good enough, then the vehicle would perform these maneuvers. For higher level path planning we use these as part of a group of primitives that allow the vehicle to move from one location to other. We propose to develop a framework for sequencing these primitives based on a naive greedy sequencing strategy and an optimal sequencing strategy.  We will evaluate our online greedy sequencing strategy against the optimal sequencing strategy. (Years 2 and 3)
+
+\item {\bf Task 4}: Development of the indoor helicopter testbed. Experimental Validation of the algorithms both indoors and outdoors as described in section~\ref{sec:eval} (Years 1-3)
+
+\end{itemize}
+
+\section{Intellectual Merit and Broader Impacts}
+
+\noindent \textbf{Intellectual Merit: }   The proposed work develops algorithms for autonomous navigation of aerial robots in gps-denied environments. Currently most UAVs lack the ability to operate in urban environments. The proposed work will develop and experimentally validate algorithms that will lay the foundation for introduction of unmanned aerial systems into the civilian airspace. There are two technical challenges addressed in this proposal : i) Development of aerial maneuvers that increase the accuracy of state estimates; ii) Designing flight paths that maximize the sensing information. Algorithms are proposed to solve both of them. At a higher level, the intellectual merit of this work lies in the exploration of synergy between control and estimation.\\
+
+\noindent \textbf{Broader Impacts and Educational Program: } The broader impacts of the proposed research activity include: (i) the development of new tools for state estimation that go beyond the aerial robot application (e.g., navigation in GPS-denied environments, underground mines, underwater etc  for ground and underwater robots);  ii) development of a year long senior capstone project on aerial robotics for senior undergraduate students in the School of Earth and Space Exploration. iii)The development of robotics resources in terms of K-12 education at SESE and making them an integrated part of the Mars Education Program. 
+
+\subsection*{Education Plan}
+This project will provide unique interdisciplinary research opportunities for graduate and undergraduate students. One of the experimental testbeds for this project will be developed as part of a year long capstone project course for senior undergraduate students. The capstone project is a mandatory 2 semester course that is required to be taken by all undergraduate students in the School of Earth and Space Exploration (SESE) at Arizona State University. It is natural that some students will be interested in the development of the aerial robot platform (mechanics, design, dynamics etc) while others will be interested in the algorithmic components (localization, navigation etc). To this end, we will use our research platform, an autonomous helicopter equipped with sensors.   Simultaneously we will also develop a indoor helicopter aerial platform with the same suite of sensors. This will form the capstone project for senior year undergraduate students.  The PI has been teaching the capstone class for the past 3 years and the previous years classes have participated in several NASA competitions. In 2010 students from the capstone class developed a rover for a mission to the moon. This project stood first in NASA sponsored RASC-AL competition defeating 13 undergraduate teams from various US universities (http://sese.asu.edu/node/789. The capstone course is sponsored by SESE. Hence funding is not necessary). 
+
+The intriguing nature of the project presents abundant opportunities for reaching out to pre-college students and general public. SESE has a long standing Mars Education Program, funded by NASA Space Grant that provides workshops, field trips, and other opportunities for teachers and students to join with scientists in the excitement of Mars exploration (http://marsed.asu.edu). Building upon the past outreach achievements of the MARS education program, the outreach plan of the proposed project will focus on the following aspects: 1) fostering the creativity of pre-college students by collaboration with the Mars Student Imaging Project (MSIP: http://msip.asu.edu). The PI plans to expand the scope of the program by teaching these students the fundamentals of robotics. In the MSIP a team of students are required to image the surface of MARS using THEMIS camera. Questions such as where to image, are natural during the process. In this project we plan to integrate a series of lectures on questions such as 1) How does a robot know where it is? 2) How can it move from one place to another place? Furthermore, two students who show keen interest in robotics will be selected from the above group and they will be given an opportunity to  spend time during summer in the PI's lab assisting graduate students with the development of aerial robots and simultaneously learning the basics of robotics. These students will be funded by the MARS Education Program. At the end they will be asked to write a short report on their experiences. This report will provide valuable feedback on how they (i.e., the high school students) perceive robotics.
+
+
+\section{Results From Prior NSF Support}
+
+Dr. Saripalli has no previous NSF support.
+

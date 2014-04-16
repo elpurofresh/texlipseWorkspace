@@ -1,0 +1,17 @@
+\relax 
+\@writefile{toc}{\contentsline {section}{\numberline {I}Autonomy vs Manual Teleoperation}{1}}
+\@writefile{toc}{\contentsline {section}{\numberline {II}Types of Operation}{1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {II-A}Direct Operation}{1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {II-B}``Shallow supervision''}{1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {II-C}``Deep supervision''}{1}}
+\@writefile{toc}{\contentsline {section}{\numberline {III}Switching between robots}{1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {III-A}Detection-based system}{1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {III-B}Risk-based system}{1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {III-C}Auto-switching vs Manual}{1}}
+\@writefile{toc}{\contentsline {section}{\numberline {IV}GUI design considerations}{1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {IV-A}Grouping of robots in interface}{1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {IV-B}Display of robots}{2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {IV-C}Types of unexpected situations}{2}}
+\@writefile{toc}{\contentsline {section}{\numberline {V}Other issues}{2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces GUI with the implemented visualization of spatial relationships and automatic gaze control}}{3}}
+\newlabel{fig:fullFeatureGUI}{{1}{3}}

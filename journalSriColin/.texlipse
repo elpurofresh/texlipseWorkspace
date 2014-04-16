@@ -1,0 +1,14 @@
+#TeXlipse project settings
+#Wed Apr 04 20:52:02 MST 2012
+markTmpDer=true
+builderNum=6
+outputDir=
+makeIndSty=
+bibrefDir=
+outputFormat=pdf
+tempDir=tmp
+mainTexFile=journalIVER.tex
+outputFile=journalIVER.pdf
+langSpell=en
+markDer=true
+srcDir=

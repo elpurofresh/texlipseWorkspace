@@ -1,0 +1,14 @@
+#TeXlipse project settings
+#Tue Dec 11 15:25:06 MST 2012
+markTmpDer=true
+builderNum=6
+outputDir=
+makeIndSty=
+bibrefDir=
+outputFormat=pdf
+tempDir=tmp
+mainTexFile=autoRobot.tex
+outputFile=autoRobot.pdf
+langSpell=en
+markDer=true
+srcDir=

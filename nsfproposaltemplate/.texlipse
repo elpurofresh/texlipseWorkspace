@@ -1,0 +1,13 @@
+#TeXlipse project settings
+#Tue Feb 07 13:46:03 MST 2012
+builderNum=4
+outputDir=
+makeIndSty=
+bibrefDir=
+outputFormat=pdf
+tempDir=tmp
+mainTexFile=NSFmaster.tex
+outputFile=NSFmaster.pdf
+langSpell=en
+markDer=true
+srcDir=

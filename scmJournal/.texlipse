@@ -1,0 +1,13 @@
+#TeXlipse project settings
+#Fri Apr 22 18:33:57 JST 2011
+builderNum=6
+outputDir=
+makeIndSty=
+bibrefDir=
+outputFormat=pdf
+tempDir=tmp
+mainTexFile=moraSCM.tex
+outputFile=moraSCM.pdf
+langSpell=en
+markDer=true
+srcDir=

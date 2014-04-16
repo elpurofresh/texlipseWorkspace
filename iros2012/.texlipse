@@ -1,0 +1,14 @@
+#TeXlipse project settings
+#Wed Feb 29 18:37:43 MST 2012
+markTmpDer=true
+builderNum=6
+outputDir=
+makeIndSty=
+bibrefDir=
+outputFormat=pdf
+tempDir=tmp
+mainTexFile=moraIROS2012.tex
+outputFile=moraIROS2012.pdf
+langSpell=en
+markDer=true
+srcDir=

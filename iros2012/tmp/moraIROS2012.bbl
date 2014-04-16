@@ -1,0 +1,84 @@
+\begin{thebibliography}{10}
+
+\bibitem{caldwell:reconfiguring}
+C.~V. Caldwell, D.~D. Dunlap, and E.~G. Collins.
+\newblock Motion planning for an autonomous underwater vehicle via sampling
+  based model predictive control.
+\newblock In {\em OCEANS 2010}, pages 1--6. OCEANS, September 2010.
+
+\bibitem{delhomme:kriging}
+J.~P. Delhomme.
+\newblock Kriging in the hydrosciences.
+\newblock In {\em Advances in Water Resources}, volume~1, pages 251--266,
+  September 1978.
+
+\bibitem{forrest:investigation}
+A.~L. Forrest, H.~Bohm, B.~Laval, E.~Magnusson, R.~Yeo, and M.~J. Doble.
+\newblock Investigation of under-ice thermal structure: small auv deployment in
+  pavilion lake, bc, canada.
+\newblock In {\em OCEANS 2007}, volume~1, pages 1--9, 2007.
+
+\bibitem{german:hydro}
+C.~R. German, D.~R. Yoerger, M.~Jakuba, T.~M. Shank, C.~H. Langmuir, and
+  K.~ichi Nakamura.
+\newblock Hydrothermal exploration with the autonomous benthic explorer.
+\newblock {\em Deep Sea Research Part I: Oceanographic Research Papers},
+  55(2):203 -- 219, 2008.
+
+\bibitem{ho:where}
+C.~Ho and S.~Saripalli.
+\newblock Where do you sample? - an autonomous underwater vehicle story.
+\newblock In {\em Robotic and Sensors Environments (ROSE), 2011 IEEE
+  International Symposium on}, pages 119 --124, September 2011.
+
+\bibitem{kumagai:newAUV}
+M.~Kumagai, T.~Ura, Y.~Kuroda, and R.~Walker.
+\newblock New auv designed for lake environment monitoring.
+\newblock In {\em Underwater Technology, 2000. UT 00. Proceedings of the 2000
+  International Symposium on}, pages 78--83, 2000.
+
+\bibitem{mcbratney:exploration}
+A.~B. McBratney, R.~Webster, and T.~M. Burgess.
+\newblock The design of optimal sampling schemes for local estimation and
+  mapping of of regionalized variables i: Theory and method.
+\newblock In {\em Computers and Geosciences}, volume~7, pages 331--334, June
+  1981.
+
+\bibitem{popa:adaptive}
+D.~O. Popa, A.~C. Sanderson, R.~J. Komerska, S.~S. Mupparapu, D.~R. Blidberg,
+  and S.~G. Chappel.
+\newblock Adaptive sampling algorithms for multiple autonomous underwater
+  vehicles.
+\newblock In {\em Autonomous Underwater Vehicles, 2004 IEEE/OES}, pages 108--
+  118. IEEE/OES, June 2004.
+
+\bibitem{smith:autonomous}
+R.~N. Smith, A.~Pereira, Y.~Chao, P.~P. Li, D.~A. Caron, B.~H. Jones, and G.~S.
+  Sukhatme.
+\newblock Autonomous underwater vehicle trajectory design coupled with
+  predictive ocean models: A case study.
+\newblock In {\em Robotics and Automation (ICRA), 2010 IEEE International
+  Conference on,}, pages 4770--4777. IEEE, May 2010.
+
+\bibitem{stoker:exploration}
+C.~R.~. Stoker, D.~Barch, J.~Farmer, M.~Flagg, T.~Healy, T.~Tengdin, H.~Thomas,
+  K.~Schwer, and D.~Stakes.
+\newblock Exploration of mono lake with an rov: a prototype experiment for the
+  maps auv program.
+\newblock In {\em Autonomous Underwater Vehicle Technology, Proceedings of the
+  1996 Symposium on}, pages 33--40, June 1996.
+
+\bibitem{witt:go}
+J.~Witt and M.~Dunbabin.
+\newblock Go with the flow: Optimal auv path planning in coastal environments.
+\newblock In {\em Australian Conference on Robotics and Automation, 2008},
+  2008.
+
+\bibitem{zhang:adaptive}
+B.~Zhang and G.~S. Sukhatme.
+\newblock Adaptive sampling for estimating a scalar field using a robotic boat
+  and a sensor network.
+\newblock In {\em Robotics and Automation, 2007 IEEE International Conference
+  on,}, pages 3673--3680. IEEE, April 2007.
+
+\end{thebibliography}

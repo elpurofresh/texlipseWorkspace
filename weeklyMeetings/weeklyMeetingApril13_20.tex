@@ -1,0 +1,46 @@
+\documentclass[a4paper, 10pt]{article}
+%\documentclass[a4paper, 10pt, article]{ieeeconf}
+\usepackage{graphicx}
+
+\begin{document}
+
+\title{Weekly Meeting, April 13th-20th, 2011
+\\Multiple Mobile Social Robots}
+\author{Andres Mora}
+\date{} % to elminate the date
+
+\maketitle
+
+\section{Issues}
+\begin{enumerate}
+  \item Initial simulator's model
+  \item SCM's journal strategy
+\end{enumerate}
+
+\section{Simulator model}
+We can identify two different operator ``modes'': monitoring and teleroperating.
+The first one can be modelled as the cost of neglecting the error's of all of the robots in the system.
+The second one can be modelled in connection with the first one, and it should represent the cost of not acting upon a robot's identified error state.
+
+\subsection{Monitoring}
+It is represented by a utility function that identifies if a robot is in an error state.
+This should represent how badly the system is operating.
+The operator should decrease this badness for all the robots. 
+No ``badness'' is obtained if every robot's error is identified.
+
+Some of the possible parameters for this ``cost function'' should include among others:
+\begin{itemize}
+  \item environmental conditions
+  \item operator's expertise (in terms on how skilled s/he is).
+  \item penalty for not identifying errors
+  \item others\ldots
+\end{itemize}
+
+
+\section{Journal strategy}
+Use the submitted IROS as the base for the journal. 
+Add the set of requirements that are characteristic for the design of teleoperation systems within the scope of mobile social robotics, particularly their GUI.
+Add the observations made during the experiments of last year and reported on the HRI paper.
+
+
+\end{document}

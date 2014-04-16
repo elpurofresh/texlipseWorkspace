@@ -1,0 +1,398 @@
+@INPROCEEDINGS{goodrich:human,
+	AUTHOR = "M. A. Goodrich and A. C. Schultz",
+	TITLE = "Human-Robot Interaction: A Survey",
+	BOOKTITLE = "Foundations and Trends in Human-Computer Interaction",
+	PAGES = "203-275",
+	ORGANIZATION = "ACM/IEEE",
+	VOLUME = "1", 
+	YEAR = {2007}	}
+		
+@ARTICLE{casper:human,
+	AUTHOR = "J. Casper and R. R. Murphy",
+	TITLE = "Human-robot interactions during the robot-assisted urban search and rescue response at the world trade center",
+	JOURNAL = "IEEE Trans. Syst., Man, Cybern.",
+	VOLUME = {33},
+	NUMBER = {3},
+	PAGES = {367-385},
+	MONTH = "June",
+	YEAR = {2003}	}
+	
+@ARTICLE{burke:moonlight,
+	AUTHOR = {J. L. Burke and R. R. Murphy and M. D. Coovert and D. L. Riddle},
+	TITLE = {Moonlight in Miami: A field study of human-robot interaction in the context of an urban search and rescue disaster response training exercise},
+	JOURNAL = {Human Computer Interaction},
+	VOLUME = {19},
+	PAGES = {85-116},
+	YEAR = {2004}	}
+
+@ARTICLE{burke:final,
+	AUTHOR = {J. L. Burke and R. R. Murphy and E. Rogers and V. J. Lumelsky and J. Scholtz},
+	TITLE = {Final report for the DARPA/NSF interdisciplinary study on human-robot interaction},
+	JOURNAL = {IEEE Trans. Syst., Man, Cybern.},
+	VOLUME = {34},
+	NUMBER = {2},
+	PAGES = {103-112},
+	MONTH = {May},
+	YEAR = {2004}	}
+
+@ARTICLE{murphy:humans,
+	AUTHOR = "R. R. Murphy",
+	TITLE = "Humans, robots, rubble and research",
+	JOURNAL = "Humans, robots, rubble and research",
+	VOLUME = {12},
+	NUMBER = {2},
+	PAGES = {37-39},
+	MONTH = "March/April",
+	YEAR = {2005}	}
+	
+@INPROCEEDINGS{shiwa:how,
+	AUTHOR = "T. Shiwa and T. Kanda and M. Imai and H. Ishiguro and N. Hagita",
+	TITLE = "How Quickly Should Communication Robots Respond?",
+	BOOKTITLE = "In Proceedings of 8th ACM/IEEE International Conference on Human-Robot Interaction",
+	PAGES = "153-160",
+	ORGANIZATION = "ACM/IEEE",
+	MONTH = "March", 
+	YEAR = {2008}	}
+
+@INPROCEEDINGS{walters:influence,
+	AUTHOR = "M. L. Walters and K. Dautenhahn and R. T. Boekhorsta and K. L. Koay and C. Kaouri and S. Woods and C. Nehaniv and D. Lee and I. Werry",
+	TITLE = "The Influence of Subjects' Personality Traits on Personal Spatial Zones in a Human-Robot Interaction Experiment",
+	BOOKTITLE = "IEEE Int. Workshop on Robot and Human Interactive Communication",
+	PAGES = "347-352",
+	ORGANIZATION = "IEEE",
+	MONTH = "XXX", 
+	YEAR = {2005}	}	
+	
+@INPROCEEDINGS{huttenrauch:investigating,
+	AUTHOR = "H. H$\ddot{u}$ttenrauch and K. S. Eklundh and A. Green and E. A. Topp",
+	TITLE = "Investigating Spatial Relationships in Human-Robot Interactions",
+	BOOKTITLE = "IEEE/RSJ Int. Conf. on Intelligent Robots and Systems",
+	PAGES = "5052-5059",
+	ORGANIZATION = "IEEE/RSJ",
+	MONTH = "XXX", 
+	YEAR = {2006}	}
+	
+@INPROCEEDINGS{kuzuoka:reconfiguring,
+	AUTHOR = "H. Kuzuoka, Y. Suzuki, J. Yamashita and K. Yamazaki",
+	TITLE = "Reconfiguring Spatial Formation Arrangement by Robot Body Orientation",
+	BOOKTITLE = "ACM/IEEE Int. Conf. on Human-Robot Interaction",
+	PAGES = "285-292",
+	ORGANIZATION = "ACM/IEEE",
+	MONTH = "XXX", 
+	YEAR = {2010}	}
+
+@INPROCEEDINGS{sidner:where,
+	AUTHOR = "C. L. Sidner and C. D. Kidd and C. Lee and N. Lesh",
+	TITLE = "Where to Look: A Study of Human-Robot Engagement",
+	BOOKTITLE = " International Conference on Intelligent User Interfaces ",
+	PAGES = "78-84",
+	ORGANIZATION = "IUI",
+	MONTH = "XXX", 
+	YEAR = {2004}	}
+
+@INPROCEEDINGS{mutlu:footing,
+	AUTHOR = "B. Mutlu and T. Shiwa and T. Kanda and H. Ishiguro and N. Hagita",
+	TITLE = "Footing in Human-Robot Conversations: How Robots Might Shape Participant Roles Using Gaze Cues",
+	BOOKTITLE = "ACM/IEEE International Conference on Human-Robot Interaction",
+	PAGES = "61-68",
+	ORGANIZATION = "IUI",
+	MONTH = "XXX", 
+	YEAR = {2009}	}
+
+@INPROCEEDINGS{bennewitz:learning,
+	AUTHOR = "M. Bennewitz and W. Burgard and G. Cielniak and S. Thrun",
+	TITLE = "Learning Motion Patterns of People for Compliant Robot Motion",
+	BOOKTITLE = "Internationl Journal of Robotics Research",
+	PAGES = "31-48",
+	VOLUMEN = "24",
+	YEAR = {2005}	}
+
+@INPROCEEDINGS{sisbot:human,
+	AUTHOR = "E. A. Sisbot and L. F. Marin-Urias and R. Alami and T. Simeon",
+	TITLE = "A Human Aware Mobile Robot Motion Planner",
+	BOOKTITLE = "IEEE Transactions on Robotics",
+	PAGES = "874-883",
+	VOLUMEN = "23",
+	YEAR = {2007}	}
+
+@INPROCEEDINGS{tanaka:socialization,
+	AUTHOR = "F. Tanaka and A. Cicourel and J. R. Movellan",
+	TITLE = "Socialization between Toddlers and Robots at an Early Childhood Education Center",
+	BOOKTITLE = "Proceedings of the National Academy of Sciences of the USA",
+	PAGES = "17954-17958",
+	YEAR = {2007}	}
+
+@INPROCEEDINGS{gross:shopbot,
+	AUTHOR = "H. M. Gross and H. J. Boehme and C. Schroeter and S. Mueller and A. Koenig and C. Martin and M. Merten and A. Bley",
+	TITLE = "Shopbot: Progress in Developing an Interactive Mobile Shopping Assistant for Everyday Use",
+	BOOKTITLE = "IEEE Int. Conf. on Systems, Man, and Cybernetics",
+	PAGES = "3471-3478",
+	YEAR = {2008}	}
+
+@INPROCEEDINGS{kanda:affective,
+	AUTHOR = "T. Kanda and M. Shiomi and Z. Miyashita and H. Ishiguro and N. Hagita",
+	TITLE = "An Affective Guide Robot in a Shopping Mall",
+	BOOKTITLE = "ACM/IEEE Int. Conf. on Human-Robot Interaction",
+	PAGES = "173-180",
+	YEAR = {2009}	}
+
+@INPROCEEDINGS{drury:decomposition,
+	AUTHOR = {J. L. Drury and L. Riek and N. Rackliffe},
+	TITLE = "{A Decomposition of UAV-related situation awareness}",
+	BOOKTITLE = {HRI '06: Proceedings of the 1st ACM SIGCHI/SIGART conference on Human-robot interaction},
+	PAGES = {88-94},
+	ORGANIZATION = "ACM/IEEE",
+	MONTH = "March", 
+	YEAR = {2006}	}
+
+@INPROCEEDINGS{sellner:attaining,
+	AUTHOR = "Sellner, P. B. and Hiatt, L. M. and Simmons R. and Singh S.",
+	TITLE = "Attaining Situational Awareness for Sliding Autonomy",
+	BOOKTITLE = {HRI '06: Proceedings of the 1st ACM SIGCHI/SIGART conference on Human-robot interaction},
+	PAGES = "XX-XX",
+	ORGANIZATION = "ACM/IEEE",
+	MONTH = "March", 
+	YEAR = {2006}	}
+
+@INPROCEEDINGS{drury:awareness,
+	AUTHOR = "Jill L. Drury and Jean Scholtz and Holly A. Yanco",
+	TITLE = "{Awareness in Human-Robot Interactions}",
+	BOOKTITLE = "Proceedings of the IEEE Conference on Systems, Man and Cybernetics",
+	PAGES = "111-119",
+	MONTH = "October", 
+	YEAR = {2003}	} 
+
+@ARTICLE{nielsen:ecological, 
+	author={Nielsen, C.W. and Goodrich, M.A. and Ricks, R.W.}, 
+	title={Ecological Interfaces for Improving Mobile Robot Teleoperation}, 
+	journal={Robotics, IEEE Transactions on}, 
+	year={2007}, 
+	month={oct.}, 
+	volume={23}, 
+	number={5}, 
+	pages={927-941} }
+	
+@INPROCEEDINGS{nielsen:comparing,
+	AUTHOR = {Nielsen, Curtis W. and Goodrich, Michael A.},
+	TITLE = "Comparing the Usefulness of Video and Map Information in Navigation Tasks",
+	BOOKTITLE =  {HRI '06: Proceedings of the 1st ACM SIGCHI/SIGART conference on Human-robot interaction},
+	PAGES = "95-101",
+	publisher = {ACM},
+	location = {Salt Lake City, Utah, USA},
+	YEAR = {2006}	}
+	
+@INPROCEEDINGS{drury:lassoing,
+	AUTHOR = {J. L. Drury and B. Keyes and H. A. Yanco},
+	title = "{LASSOing HRI:} analyzing situation awareness in map-centric and video-centric interfaces",
+ booktitle = {HRI '07: Proceedings of the ACM/IEEE international conference on Human-robot interaction},
+ year = {2007},
+ pages = {279-286},
+ location = {Arlington, Virginia, USA},
+ publisher = {ACM},
+ address = {New York, NY, USA} } 
+
+@INPROCEEDINGS{meier:sensorfusion,
+	AUTHOR = {Roger Meier and Terrence Fong and Charles Thorpe and Charles Baur},
+	TITLE = {A sensor fusion based user interface for vehicle teleoperation},
+	BOOKTITLE = {International conference on field and service robotics (FSR},
+	PAGES = {279-286},
+	YEAR = {1999}	} 
+		
+@INPROCEEDINGS{sellner:attainingSA,
+	AUTHOR = "B. P. Sellner and L. M. Hiatt and R. Simmons",
+	TITLE = "Attaining Situational Awareness for Sliding Autonomy",
+	BOOKTITLE = "In Proceedings of 6th ACM/IEEE International Conference on Human-Robot Interaction",
+	PAGES = "80-87",
+	ORGANIZATION = "ACM/IEEE",
+	MONTH = "March", 
+	YEAR = {2006}	}
+
+@INPROCEEDINGS{fischer:shaping,
+	AUTHOR = "K. Fischer and M. Lohse",
+	TITLE = "Shaping Naive Users' Models of Robots' Situation Awareness",
+	BOOKTITLE = "In Proceedings of 16th IEEE International Conference on Robot $\amp$ Human Interactive Communication",
+	PAGES = "534-539",
+	ORGANIZATION = "IEEE",
+	MONTH = "August", 
+	YEAR = {2007}	}
+	
+@INPROCEEDINGS{ratwani:singleoperator,
+	AUTHOR = "R. M. Ratwani and J. M. McCurry and J. G. Trafton",
+	TITLE = "Single Operator, Multiple Robots: An Eye Movement Based Theoretic Model of Operator Situation Awareness",
+	BOOKTITLE = "In Proceedings of 16th IEEE International Conference on Robot $\amp$ Human Interactive Communication",
+	PAGES = "235-242",
+	ORGANIZATION = "IEEE",
+	MONTH = "XXXX", 
+	YEAR = {2XXX}	}
+
+@INPROCEEDINGS{goodrich:seven,
+	AUTHOR = "M. A. Goodrich and D. R. Jr. Olsen",
+	TITLE = "Seven Principles of Efficient Human Robot Interaction",
+	BOOKTITLE = "In Proceedings of 16th IEEE International Conference on xxxxxxxxx",
+	PAGES = "3943-3948",
+	ORGANIZATION = "IEEE",
+	YEAR = {2003}	}
+
+@INPROCEEDINGS{scholtz:evaluation,
+	AUTHOR = "Jean Scholtz and J. Young and Jill. L. Drury and Holly. A. Yanco",
+	TITLE = "Evaluation of Human-Robot Interaction Awareness in Search and Rescue",
+	BOOKTITLE = "In Proceedings of 16th IEEE International Conference on Robotics and Automation",
+	PAGES = "235-242",
+	ORGANIZATION = "IEEE",
+	MONTH = "XXXX", 
+	YEAR = {2004}	}
+
+@INPROCEEDINGS{fong:vehicle,
+	AUTHOR = "T. Fong and C. Thorpe",
+	TITLE = "Vehicle Teleoperation Interfaces",
+	BOOKTITLE = "Autonomous Robots",
+	PAGES = "9-18",
+	ORGANIZATION = "IEEE",
+	MONTH = "November", 
+	YEAR = {2001}	}
+	
+@INPROCEEDINGS{driewer:discussion,
+	AUTHOR = "F. Driewere and M. Sauer and K. Schilling",
+	TITLE = "Discussion of Challenges for User Interfaces in Human-Robot Teams",
+	BOOKTITLE = "In Proceedings of EMCR ",
+	PAGES = "xxx-xxx",
+	ORGANIZATION = "IEEE",
+	MONTH = "XXXX", 
+	YEAR = {2007}	}
+	
+@INPROCEEDINGS{carff:human,
+	AUTHOR = {J. Carff and M. Johnson and E. M. El-Sheikh and J. E. Pratt},
+	TITLE = {Human-Robot Team Navigation in Visually Complex Environments},
+	BOOKTITLE = {Proceedings of 2009 IEEE/RSJ International Conference on Intelligent Robots and Systems},
+	PAGES = {3043-3050},
+	MONTH = {October}, 
+	YEAR = {2009}	}
+
+@INPROCEEDINGS{glas:field,
+	AUTHOR = {Glas, Dylan F. and Kanda, Takayuki and Ishiguro, Hiroshi and Hagita, Norihiro},
+	TITLE = {Field trial for simultaneous teleoperation of mobile social robots},
+	BOOKTITLE = {HRI '09: Proceedings of the 4th ACM/IEEE international conference on Human robot interaction},
+	PAGES = {149-156},
+	location = {La Jolla, California, USA},
+	publisher = {ACM},
+	YEAR = {2009}	}
+
+@INPROCEEDINGS{glas:simultaneous,
+	AUTHOR = {Glas, Dylan F. and Kanda, Takayuki and Ishiguro, Hiroshi and Hagita, Norihiro},
+	TITLE = "Simultaneous Teleoperation of Multiple Social Robots",
+	BOOKTITLE = {HRI '08: Proceedings of the 3rd ACM/IEEE international conference on Human robot interaction},
+	PAGES = "311-318",
+	location = {Amsterdam, The Netherlands},
+	publisher = {ACM},
+	YEAR = {2008}	}
+	
+@INPROCEEDINGS{kuzuoka:dual,
+	AUTHOR = "Hideaki Kuzuoka and Keiichi Yamazaki and Akiko Yamazaki and Jun'ichi Kosaka and Yasuko Suga and Christian Heath",
+	TITLE = {Dual ecologies of robot as communication media: thoughts on coordinating orientations and projectability},
+	BOOKTITLE = {CHI '04: Proceedings of the SIGCHI conference on Human factors in computing systems},
+	PAGES = {183-190},
+	location = {Vienna, Austria},
+ 	publisher = {ACM},
+	YEAR = {2004}	}
+	
+@article{glas:laser,
+	author = {Dylan F. Glas and Takahiro Miyashita and Hiroshi Ishiguro and Norihiro Hagita},
+	title = {Laser-Based Tracking of Human Position and Orientation Using Parametric Shape Modeling},	
+	journal = {Advanced Robotics},
+	volume = {23},
+	number = {4},
+	year = {2009},
+	pages = {405-428} }
+
+@INPROCEEDINGS{hart:tlx,
+	AUTHOR = "S. G. Hart and L. E. Staveland",
+	TITLE = "{Development of NASA-TLX (Task Load Index)}: Results of empirical and theoretical research",
+	BOOKTITLE = "Human Mental Workload",
+	PAGES = "139-183",
+	YEAR = {1988}	}
+	
+@INPROCEEDINGS{green:applying,
+	AUTHOR = {Green, A. and Huttenrauch, H. and Eklundh, K.S.},
+	TITLE = "{Applying the Wizard-of-Oz Framework to Cooperative Service Discovery and Configuration}",
+	BOOKTITLE = {Robot and Human Interactive Communication, 2004. ROMAN 2004. 13th IEEE International Workshop on},
+	pages={575-580},
+	YEAR = {2004}	}
+	
+@INPROCEEDINGS{woods:comparing,
+	AUTHOR = {Woods, S.N. and Walters, M.L. and Koay, K.L. and Dautenhahn, K.},
+	TITLE = "{Comparing Human Robot Interaction Scenarios Using Live and Video Based Methods, Towards a Novel Methodological Approach}",
+	BOOKTITLE = "Advanced Motion Control, 2006. 9th IEEE International Workshop on",
+	pages={750 -755},
+	YEAR = {2006}	}
+		
+@ARTICLE{wells:talon,
+	author = {Peter Wells and Dan Deguire},
+	title = {TALON: A Universal Unmanned Ground Vehicle Platform, Enabling the Mission to be the Focus},
+	publisher = {SPIE},
+	year = {2005},
+	journal = {Unmanned Ground Vehicle Technology VII},
+	volume = {5804},
+	number = {1},
+	pages = {747-757} }
+	
+@INPROCEEDINGS{yamauchi:packbot,
+  author = {Brian Yamauchi},
+  title = {PackBot: A Versatile Platform for Military Robotics},
+  booktitle = {Proceedings of SPIE 5422},
+  pages = {228-237},
+  year = {2004} }
+    
+@book{buehler:darpa,
+	author = {Buehler, Martin and Iagnemma, Karl and Singh, Sanjiv},
+	title = {The 2005 DARPA Grand Challenge: The Great Robot Race},
+	year = {2007},
+	publisher = {Springer Publishing Company, Incorporated}
+ }
+ 
+@INPROCEEDINGS{dejong:improving, 
+	author={DeJong, B.P. and Colgate, J.E. and Peshkin, M.A.}, 
+	booktitle= {Robotics and Automation, 2004. Proceedings. ICRA '04. 2004 IEEE International Conference on}, 
+	title={Improving teleoperation: reducing mental rotations and translations}, 
+	year={2004}, 
+	month={apr.}, 
+	volume={4},
+	pages={3708-3714} 
+}
+
+@INPROCEEDINGS{diller:why,
+  author = {Antoni Diller},
+  title = {Why AI and Robotics are going nowhere fast},
+  booktitle = {Thinking Machines and the Philosophy of Computer Science: Concepts and Principles},
+  pages = {328-343},
+  year = {2010} 
+ }
+  
+@inproceedings{steinfeld:theOz,
+   author = "Aaron Steinfeld and Odest Chadwicke Jenkins and Brian Scassellati",
+   title = "The Oz of Wizard: Simulating the Human for Interaction Research",
+   booktitle = "ACM/IEEE International Conference on Human-Robot Interaction (HRI)",
+   month = "March",
+   year = "2009"
+}
+
+@inproceedings{dahlback:wizard,
+ author = {Dahlb\"{a}ck, Nils and J\"{o}nsson, Arne and Ahrenberg, Lars},
+ title = {Wizard of Oz studies: why and how},
+ booktitle = {Proceedings of the 1st international conference on Intelligent user interfaces},
+ year = {1993},
+ isbn = {0-89791-556-9},
+ location = {Orlando, Florida, United States},
+ pages = {193--200},
+ numpages = {8},
+ publisher = {ACM}
+}
+
+@INPROCEEDINGS{nofi:defining,
+  author = {A. A. Nofi},
+  title = {Defining and Measuring Shared Situation Awareness},
+  booktitle = {Center Naval Anal.},
+  location = {Alexandria, VA},
+  isbn = {CRM D0002895},
+  month = {Nov.},
+  year = {2000} 
+ }

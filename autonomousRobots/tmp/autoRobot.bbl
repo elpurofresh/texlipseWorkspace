@@ -1,0 +1,152 @@
+\begin{thebibliography}{21}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Bennett and Leonard(2000)]{bennett:behavior}
+A.A. Bennett and J.J. Leonard.
+\newblock A behavior-based approach to adaptive feature detection and following
+  with autonomous underwater vehicles.
+\newblock \emph{Oceanic Engineering, IEEE Journal of}, 25\penalty0
+  (2):\penalty0 213--226, 2000.
+
+\bibitem[Caldwell et~al.(2010)Caldwell, Dunlap, and
+  Collins]{caldwell:reconfiguring}
+C.~V. Caldwell, D.~D. Dunlap, and E.~G. Collins.
+\newblock Motion planning for an autonomous underwater vehicle via sampling
+  based model predictive control.
+\newblock In \emph{OCEANS 2010}, pages 1--6, September 2010.
+
+\bibitem[Chen et~al.(2012)Chen, Pandey, and Pompili]{chen:adaptive}
+B.~Chen, P.~Pandey, and D.~Pompili.
+\newblock An adaptive sampling solution using autonomous underwater vehicles.
+\newblock In \emph{IFAC Conference on Manoeuvring and Control of Marine Craft
+  (MCMC), 2012}, August 2012.
+
+\bibitem[Chil\`{e}s and Delfiner(2012)]{chiles:ordKrig}
+J.P Chil\`{e}s and P.~Delfiner.
+\newblock \emph{Geostatistics, Modeling Spatial Uncertainty}.
+\newblock Wiley, 2nd Ed., 2012.
+
+\bibitem[Cruz and Matos(2010)]{cruz:thermoclines}
+N.A. Cruz and A.C. Matos.
+\newblock Adaptive sampling of thermoclines with autonomous underwater
+  vehicles.
+\newblock In \emph{OCEANS 2010}, pages 1--6, September 2010.
+
+\bibitem[Delhomme(1978)]{delhomme:kriging}
+J.~P. Delhomme.
+\newblock Kriging in the hydrosciences.
+\newblock In \emph{Advances in Water Resources}, volume~1, pages 251--266,
+  September 1978.
+
+\bibitem[DeVore(2007)]{devore:deterministic}
+R.~A. DeVore.
+\newblock Deterministic constructions of compressed sensing matrices.
+\newblock \emph{Journal of Complexity}, 23\penalty0 (4–6):\penalty0 918--925,
+  2007.
+
+\bibitem[Donoho(2006)]{donoho:compressed}
+D.L. Donoho.
+\newblock Compressed sensing.
+\newblock \emph{Information Theory, IEEE Transactions on}, 52\penalty0
+  (4):\penalty0 1289--1306, April 2006.
+
+\bibitem[Dunbabin and Grinham(2010)]{dunbabin:catamaran}
+M.~Dunbabin and A.~Grinham.
+\newblock Experimental evaluation of an autonomous surface vehicle for water
+  quality and greenhouse gas emission monitoring.
+\newblock In \emph{Robotics and Automation (ICRA), 2010 IEEE International
+  Conference on}, pages 5268--5274, 2010.
+
+\bibitem[Forrest et~al.(2007)Forrest, Bohm, Laval, Magnusson, Yeo, and
+  Doble]{forrest:investigation}
+A.~L. Forrest, H.~Bohm, B.~Laval, E.~Magnusson, R.~Yeo, and M.~J. Doble.
+\newblock Investigation of under-ice thermal structure: small auv deployment in
+  pavilion lake, bc, canada.
+\newblock In \emph{OCEANS 2007}, volume~1, pages 1--9, 2007.
+
+\bibitem[German et~al.(2008)German, Yoerger, Jakuba, Shank, Langmuir, and
+  Nakamura]{german:hydro}
+C.~R. German, D.~R. Yoerger, M.~Jakuba, T.~M. Shank, C.~H. Langmuir, and
+  K.~Nakamura.
+\newblock Hydrothermal exploration with the autonomous benthic explorer.
+\newblock \emph{Deep Sea Research Part I: Oceanographic Research Papers},
+  55\penalty0 (2):\penalty0 203--219, 2008.
+
+\bibitem[Haeger(1995)]{haeger:vertGradModel}
+S.D. Haeger.
+\newblock Vertical representation of ocean temperature profiles with a gradient
+  feature model.
+\newblock In \emph{OCEANS '95. MTS/IEEE. Challenges of Our Changing Global
+  Environment. Conference Proceedings.}, volume~1, pages 579--585, October
+  1995.
+
+\bibitem[Kumagai et~al.(2000)Kumagai, Ura, Kuroda, and Walker]{kumagai:newAUV}
+M.~Kumagai, T.~Ura, Y.~Kuroda, and R.~Walker.
+\newblock New auv designed for lake environment monitoring.
+\newblock In \emph{Underwater Technology, 2000. UT 00. Proceedings of the 2000
+  International Symposium on}, pages 78--83, 2000.
+
+\bibitem[McBratney et~al.(1981)McBratney, Webster, and
+  Burgess]{mcbratney:exploration}
+A.~B. McBratney, R.~Webster, and T.~M. Burgess.
+\newblock The design of optimal sampling schemes for local estimation and
+  mapping of of regionalized variables i: Theory and method.
+\newblock In \emph{Computers and Geosciences}, volume~7, pages 331--334, June
+  1981.
+
+\bibitem[Popa et~al.(2004)Popa, Sanderson, Komerska, Mupparapu, Blidberg, and
+  Chappel]{popa:adaptive}
+D.~O. Popa, A.~C. Sanderson, R.~J. Komerska, S.~S. Mupparapu, D.~R. Blidberg,
+  and S.~G. Chappel.
+\newblock Adaptive sampling algorithms for multiple autonomous underwater
+  vehicles.
+\newblock In \emph{Autonomous Underwater Vehicles, 2004 IEEE/OES}, pages
+  108--118, June 2004.
+
+\bibitem[Smith et~al.(2010)Smith, Chao, Li, Caron, Jones, and
+  Sukhatme]{smith:autonomous}
+R.~N. Smith, Y.~Chao, P.~P. Li, D.~A. Caron, B.~H. Jones, and G.~S. Sukhatme.
+\newblock Planning and implementing trajectories for autonomous underwater
+  vehicles to track evolving ocean processes based on predictions from a
+  regional ocean model.
+\newblock \emph{International Journal of Robotics Research}, 29:\penalty0
+  1475--1497, 2010.
+
+\bibitem[Stoker et~al.(1996)Stoker, Barch, Farmer, Flagg, Healy, Tengdin,
+  Thomas, Schwer, and Stakes]{stoker:exploration}
+C.~R~. Stoker, D.~Barch, J.~Farmer, M.~Flagg, T.~Healy, T.~Tengdin, H.~Thomas,
+  K.~Schwer, and D.~Stakes.
+\newblock Exploration of mono lake with an rov: a prototype experiment for the
+  maps auv program.
+\newblock In \emph{Autonomous Underwater Vehicle Technology, Proceedings of the
+  1996 Symposium on}, pages 33--40, June 1996.
+
+\bibitem[Technology~Inc.(2012)]{iver2:internet}
+Ocean~Server Technology~Inc.
+\newblock Iver2, auv@online, December 2012.
+\newblock URL \url{\small{http://www.oceanserver-store.com/iver2auv.html}}.
+
+\bibitem[van Overschee and De~Moor(1996)]{van:subspace}
+P.~van Overschee and B.~De~Moor.
+\newblock \emph{Subspace Identification of Linear Systems: Theory,
+  Implementation, Applications}.
+\newblock Kluwer Academic Publishers, 1996.
+
+\bibitem[Witt and Dunbabin(2008)]{witt:go}
+J.~Witt and M.~Dunbabin.
+\newblock Go with the flow: Optimal auv path planning in coastal environments.
+\newblock In \emph{Australian Conference on Robotics and Automation, 2008},
+  2008.
+
+\bibitem[Zhang and Sukhatme(2007)]{zhang:adaptive}
+B.~Zhang and G.~S. Sukhatme.
+\newblock Adaptive sampling for estimating a scalar field using a robotic boat
+  and a sensor network.
+\newblock In \emph{Robotics and Automation, 2007 IEEE International Conference
+  on}, pages 3673--3680, April 2007.
+
+\end{thebibliography}

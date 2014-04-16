@@ -1,0 +1,105 @@
+\relax 
+\citation{green:applying,steinfeld:theOz,dahlback:wizard}
+\citation{burke:moonlight,wells:talon,yamauchi:packbot}
+\citation{buehler:darpa}
+\citation{drury:decomposition,drury:awareness}
+\citation{carff:human}
+\@writefile{toc}{\contentsline {section}{\numberline {I}Introduction}{1}}
+\@writefile{toc}{\contentsline {section}{\numberline {II}Related Works}{1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-A}}Teleoperation for navigation tasks}{1}}
+\citation{meier:sensorfusion,nielsen:comparing}
+\citation{drury:lassoing,nielsen:ecological}
+\citation{kuzuoka:dual}
+\citation{carff:human,drury:lassoing}
+\citation{drury:decomposition,drury:awareness}
+\citation{green:applying}
+\citation{woods:comparing}
+\citation{glas:simultaneous}
+\citation{glas:field}
+\citation{glas:laser}
+\citation{nielsen:ecological}
+\citation{nofi:defining}
+\citation{nielsen:comparing}
+\citation{nielsen:ecological}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-B}}Teleoperation of social robots}{2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-C}}Natural interaction with social robots}{2}}
+\@writefile{toc}{\contentsline {section}{\numberline {III}Design Principles}{2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-A}}Guidelines for Navigational Robotics}{2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-B}}Proposed Techniques}{2}}
+\newlabel{subsec:proposed}{{\unhbox \voidb@x \hbox {III-B}}{2}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {III-B}1}Automatic Gaze Control}{2}}
+\citation{dejong:improving}
+\citation{nielsen:comparing}
+\citation{glas:laser}
+\citation{glas:field}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {III-B}2}Visualization of Spatial Relationships}{3}}
+\@writefile{toc}{\contentsline {section}{\numberline {IV}System Implementation}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-A}}Robot side}{3}}
+\newlabel{subsubsec:robotSide}{{\unhbox \voidb@x \hbox {IV-A}}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-B}}Operator Side}{3}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {IV-B}1}Visualization}{3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces GUI with the implemented visualization of spatial relationships and automatic gaze control}}{4}}
+\newlabel{fig:fullFeatureGUI}{{1}{4}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {IV-B}2}Actuation}{4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces 3D view of the simulated shop.}}{4}}
+\newlabel{fig:simShop}{{2}{4}}
+\@writefile{toc}{\contentsline {section}{\numberline {V}Experiment}{5}}
+\newlabel{sec:experiment}{{V}{5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-A}}Scenario}{5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-B}}Procedure}{5}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {V-B}1}Operator's Role}{5}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {V-B}2}Customer's Role}{5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-C}}Conditions}{5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-D}}Hypothesis and Prediction}{5}}
+\newlabel{sec:hypothesis}{{\unhbox \voidb@x \hbox {V-D}}{5}}
+\citation{hart:tlx}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Customer Satisfaction(left), NASA-TLX(center) and Interaction Length(right) }}{6}}
+\newlabel{fig:results}{{3}{6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-E}}Evaluation}{6}}
+\@writefile{toc}{\contentsline {section}{\numberline {VI}Results}{6}}
+\newlabel{subsubsec:verification}{{VI}{6}}
+\newlabel{sec:verification}{{VI}{6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {VI-A}}Customer Satisfaction}{6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {VI-B}}NASA-TLX}{6}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Natural interaction achieved using visualization and autogaze.}}{7}}
+\newlabel{fig:opATogether}{{4}{7}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Poor interaction when using no-visualization and no-autogaze.}}{7}}
+\newlabel{fig:nopNaTogether}{{5}{7}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {VI-C}}Interaction Length}{7}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {VI-D}}Observations}{7}}
+\bibstyle{IEEEtran}
+\bibdata{moraSCM}
+\bibcite{green:applying}{1}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {VI-D}1}Case 1: With visualization and with autogaze}{8}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {VI-D}2}Case 2: Without visualization and without autogaze}{8}}
+\@writefile{toc}{\contentsline {section}{\numberline {VII}Discussion}{8}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {VII-A}}Summary}{8}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {VII-B}}Limitations}{8}}
+\@writefile{toc}{\contentsline {section}{\numberline {VIII}Acknowledgments}{8}}
+\bibcite{steinfeld:theOz}{2}
+\bibcite{dahlback:wizard}{3}
+\bibcite{burke:moonlight}{4}
+\bibcite{wells:talon}{5}
+\bibcite{yamauchi:packbot}{6}
+\bibcite{buehler:darpa}{7}
+\bibcite{drury:decomposition}{8}
+\bibcite{drury:awareness}{9}
+\bibcite{carff:human}{10}
+\bibcite{meier:sensorfusion}{11}
+\bibcite{nielsen:comparing}{12}
+\bibcite{drury:lassoing}{13}
+\bibcite{nielsen:ecological}{14}
+\bibcite{kuzuoka:dual}{15}
+\bibcite{woods:comparing}{16}
+\bibcite{glas:simultaneous}{17}
+\bibcite{glas:field}{18}
+\bibcite{glas:laser}{19}
+\bibcite{nofi:defining}{20}
+\bibcite{dejong:improving}{21}
+\bibcite{hart:tlx}{22}
+\@writefile{toc}{\contentsline {section}{References}{9}}
+\@writefile{toc}{\contentsline {section}{Biographies}{9}}
+\@writefile{toc}{\contentsline {subsection}{Andres Mora}{9}}
+\@writefile{toc}{\contentsline {subsection}{Dylan Glas}{9}}
+\@writefile{toc}{\contentsline {subsection}{Takayuki Kanda}{9}}
+\@writefile{toc}{\contentsline {subsection}{Norihito Hagita}{9}}
